@@ -282,10 +282,6 @@ ul {
   background: rgba(0,0,0,0.5);
 }
 
-.modal-content video{
-  max-width: 1000px;
-}
-
 /* CONTACT */
 
 #contact {
@@ -691,11 +687,6 @@ input[type=submit]:hover {
   .card {
     margin: 0.5%;
   }
-
-  .modal-content video {
-    width: 100vw;
-  }
-
 }
 
 @media screen and (max-width: 471px){

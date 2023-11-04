@@ -3,7 +3,7 @@ import { useCreditsContext } from '../hooks/useCreditsContext';
 import { useAuthContext } from '../hooks/useAuthContext';
 
 const CreditForm = () => {
-    const serverUrl = PROCESS.ENV.SERVER_URL;
+    const serverUrl = process.env.SERVER_URL;
     const {dispatch} = useCreditsContext();
     const [title, setTitle] = useState('');
     const [image, setImage] = useState('');

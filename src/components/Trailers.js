@@ -4,7 +4,7 @@ import Other from './Other';
 import Music from './Music';
 
 const Trailers = ({contentType}) => {
-    const serverUrl = PROCESS.ENV.SERVER_URL;
+    const serverUrl = process.env.SERVER_URL;
     const [credits, setCredits] = useState(null);
 
     useEffect(() => {

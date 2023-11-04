@@ -7,7 +7,7 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import CreditForm from '../components/CreditForm';
 
 const UpdateCredits = () => {
-    const serverUrl = PROCESS.ENV.SERVER_URL;
+    const serverUrl = process.env.SERVER_URL;
     const {credits, dispatch} = useCreditsContext();
     const [draggingElement, setDraggingElement] = useState(null);
     const dragItem = useRef(null);

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useAuthContext } from './useAuthContext';
 
 export const useSignup = () => {
-    const serverUrl = PROCESS.ENV.SERVER_URL;
+    const serverUrl = process.env.SERVER_URL;
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(null);
     const {dispatch} = useAuthContext();

@@ -164,7 +164,7 @@ ul {
   border-radius: 18px;
   height: 380px;
   margin: 1%;
-  max-width: 290px;
+  /* max-width: 290px; */
 }
 
 /* .music-card {
@@ -225,7 +225,6 @@ ul {
 
 .music-card .badge {
   font-size: 15px;
-
 }
 
 .music-card i {
@@ -652,16 +651,18 @@ input[type=submit]:hover {
   }
 
   .music-card {
-    width: 40vw;
-    height: 47vw;
+    width: 33vw;
+    color: rgb(113,210,95);
+    height: 43vw;
   }
 
   .music-card p {
-    font-size: 3vw;
+    font-size: 2.7vw;
   }
 
   .music-card i {
     font-size: 6vw;
+    opacity: 1;
   }
 
   .content-list {

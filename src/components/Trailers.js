@@ -4,11 +4,12 @@ import Other from './Other';
 import Music from './Music';
 
 const Trailers = ({contentType}) => {
+    const serverUrl = PROCESS.ENV.SERVER_URL;
     const [credits, setCredits] = useState(null);
 
     useEffect(() => {
         const fetchCredits = async () => {
-            const response = await fetch(`/credits/${contentType}`);
+            const response = await fetch(`${serverUrl}/credits/${contentType}`);
             const json = await response.json();
 
             if(response.ok){

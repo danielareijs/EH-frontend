@@ -3,6 +3,7 @@ import { useCreditsContext } from '../hooks/useCreditsContext';
 import { useAuthContext } from '../hooks/useAuthContext';
 
 const CreditForm = () => {
+    const serverUrl = PROCESS.ENV.SERVER_URL;
     const {dispatch} = useCreditsContext();
     const [title, setTitle] = useState('');
     const [image, setImage] = useState('');
@@ -72,7 +73,7 @@ const CreditForm = () => {
         const credit = {title, category, url, image}
         console.log('CREDIT: ', credit);
 
-        const response = await fetch('/credits', {
+        const response = await fetch(`${serverUrl}/credits`, {
             method: 'POST',
             body: JSON.stringify(credit),
             headers: {

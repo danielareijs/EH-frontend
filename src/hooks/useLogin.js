@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useAuthContext } from './useAuthContext';
 
 export const useLogin = () => {
+    const serverUrl = PROCESS.ENV.SERVER_URL;
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(null);
     const {dispatch} = useAuthContext();
@@ -10,7 +11,7 @@ export const useLogin = () => {
         setIsLoading(true);
         setError(null);
         
-        const response = await fetch('/user/login', {
+        const response = await fetch(`${serverUrl}/user/login`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"

@@ -22,6 +22,10 @@ function App() {
             element={<Content />}
             /> 
             <Route 
+            path="/login"
+            element={<Login />}
+            />
+            <Route 
             path="/content"
             element={user ? <UpdateCredits /> : <Navigate to="/login" />}
             /> 

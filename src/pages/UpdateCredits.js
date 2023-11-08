@@ -2,18 +2,16 @@ import {useEffect, useState, useRef} from 'react';
 import { BsFillTrash3Fill } from 'react-icons/bs';
 import { useCreditsContext } from '../hooks/useCreditsContext';
 import { useAuthContext } from '../hooks/useAuthContext';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
 import CreditForm from '../components/CreditForm';
 
 const UpdateCredits = () => {
-    const serverUrl = process.env.SERVER_URL;
+    const serverUrl = process.env.REACT_APP_SERVER_URL;
     const {credits, dispatch} = useCreditsContext();
     const [draggingElement, setDraggingElement] = useState(null);
     const dragItem = useRef(null);
     const dragOverItem = useRef(null);
     const { user } = useAuthContext();
-    const [error, setError] = useState('');
     const [activeTab, setActiveTab] = useState('trailer');
 
     useEffect(() => {
@@ -33,7 +31,7 @@ const UpdateCredits = () => {
         if (!user){
             return;
         }
-        const response = await fetch(`/credits/${id}`, {
+        const response = await fetch(`${serverUrl}/credits/${id}`, {
             method: 'DELETE',
             headers: {
                 'Authorization': `Bearer ${user.token}`
@@ -96,8 +94,8 @@ const UpdateCredits = () => {
                             />
                             <div className="content-card-info">
                                 <h3>{credit.title}</h3>
-                                <a href={credit.videoUrl} target="_blank" rel="noreferrer" alt="Video Url">{credit.videoUrl}</a>
-                                <p>Created: {credit.createdAt}</p>
+                                <a href={credit.url} target="_blank" rel="noreferrer" alt="Video Url">{credit.url}</a>
+                                <p>Date: {credit.date}</p>
                             </div>
                             <div className="delete-button">
                                 <BsFillTrash3Fill onClick={(e) => handleDelete(e, credit._id)}/>

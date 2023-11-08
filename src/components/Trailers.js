@@ -13,7 +13,7 @@ const Trailers = ({contentType}) => {
             const json = await response.json();
 
             if(response.ok){
-                setCredits(json);
+                setCredits(json.sort());
                 console.log('credits in Trailers: ', credits);
             }
         }
@@ -24,7 +24,7 @@ const Trailers = ({contentType}) => {
 
     return (
         <div className="container content-container">
-            {credits && contentType == 'trailer' && (
+            {credits && (contentType == 'trailer' || contentType == 'Trailer') && (
                 <div className="card-list trailer-card-list">
                     {credits.map(credit => (
                         <Trailer key={credit._id} credit={credit}/>

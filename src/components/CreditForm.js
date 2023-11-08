@@ -6,18 +6,19 @@ const CreditForm = () => {
     const serverUrl = process.env.REACT_APP_SERVER_URL;
     const {dispatch} = useCreditsContext();
     const [title, setTitle] = useState('');
+    const [date, setDate] = useState('');
     const [image, setImage] = useState('');
     const [url, setUrl] = useState('');
-    const [category, setCategory] = useState('Trailer');
+    const [category, setCategory] = useState('trailer');
     const [error, setError] = useState(null);
     const [buttonDisabled, setButtonDisabled] = useState(true);
     const { user } = useAuthContext();
 
     useEffect(() => {
-        if(title && image && url && category){
+        if(title && image && date && url && category){
             setButtonDisabled(false);
         }
-    }, [title, image, category, url])
+    }, [title, image, date, category, url])
 
     const handleImageUpload = (event) => {
 
@@ -70,6 +71,7 @@ const CreditForm = () => {
             return;
         } 
 
+
         const credit = {title, category, url, image}
         console.log('CREDIT: ', credit);
 
@@ -91,6 +93,7 @@ const CreditForm = () => {
             setTitle('');
             setCategory('');
             setUrl('');
+            setDate('');
             setImage('');
             setError(null);
             console.log('New credit added.');
@@ -121,6 +124,12 @@ const CreditForm = () => {
                     onChange={(e) => setTitle(e.target.value)}
                     value={title}
                 />
+            </label>
+            <label>
+                <p>Date</p>
+                <input type="date" 
+                onChange={(e) => setDate(e.target.value)}
+                value={date}/>
             </label>
             <label>
                 <p>URL</p>

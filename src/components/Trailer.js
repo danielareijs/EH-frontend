@@ -35,8 +35,7 @@ const Trailer = ({credit}) => {
     const [url, setUrl] = useState('');
 
     useEffect(() => {
-        let url = credit.videoUrl;
-        console.log(url);
+        let url = credit.url;
         setUrl(url);
     }, []);
 

@@ -13,7 +13,7 @@ const Contact = () => {
                             <li><a href="https://www.instagram.com/espenhmusic/" target="_blank" className="contact-icon">
                                 <i className="fa-brands fa-instagram"></i></a>
                             </li>
-                            <li><a href="#" target="_blank" className="contact-icon">
+                            <li><a href="https://www.facebook.com/pirtro" target="_blank" className="contact-icon">
                                 <i className="fa-brands fa-facebook-f"></i></a>
                             </li>
                             <li><a href="mailto:espen.haagensli@gmail.com" target="_blank" className="contact-icon">

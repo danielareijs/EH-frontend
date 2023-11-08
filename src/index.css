@@ -71,10 +71,10 @@ ul {
   border-radius: 2px;
 }
 
-#navbar li:hover p{
+/* #navbar li:hover p{
   background: white;
   color: black;
-}
+} */
 
 /* CONTENT */
 .content {

@@ -1,13 +1,18 @@
-import { SlSocialSpotify } from 'react-icons/sl';
-const Music = ({credit}) => {
+import { useEffect, useState } from "react";
+const Music = ({credit, amountOfCredits}) => {
+    // const [credits, setCredits] = useState(credits);
+
+    useEffect(() => {
+        console.log('Amount of credits: ', amountOfCredits);
+    }, []);
+
     const openInNewTab = (url) => {
-        console.log('IN open new tab: ', url);
         window.open(url, "_blank", "noreferrer");
       };
 
     return (
         <div 
-            className="card music-card" 
+            className={amountOfCredits == 3 ? "card music-card three-music-cards" : "card music-card"} 
             onClick={(e) => openInNewTab(credit.url)}
         >
             <div> 
@@ -17,7 +22,6 @@ const Music = ({credit}) => {
                 <div style={{width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'end'}}>
                     <div style={{textAlign: 'left'}}>
                         <p>{credit.title}</p>
-                        {/* <p className="badge">Artist</p> */}
                     </div>
                 </div>
             </div>

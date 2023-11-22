@@ -33,9 +33,7 @@ const Other = ({credit}) => {
     const [url, setUrl] = useState('');
 
     useEffect(() => {
-        let url = credit.videoUrl;
-        console.log(url);
-        setUrl(url);
+        setUrl(credit.url);
     }, []);
 
     function openModal(){
@@ -43,7 +41,6 @@ const Other = ({credit}) => {
     }
 
     function afterOpenModal(){
-        
     }
 
     function closeModal(){
@@ -55,10 +52,12 @@ const Other = ({credit}) => {
         <>
             <div 
                 className="card other-card" 
-                style={credit.image ? {backgroundImage: `url("${credit.image}")`} : {background: 'rgb(40,40,40)'}}
+                // style={credit.image ? {backgroundImage: `url("${credit.image}")`} : {background: 'rgb(40,40,40)'}}
                 onClick={openModal}>
-                    <div style={{display: 'flex', flexDirection: 'column'}}>
-                        <i className="fa-regular fa-circle-play"></i>
+                    <div>
+                        <div className="other-card-img" style={credit.image ? {backgroundImage: `url("${credit.image}")`} : {background: 'rgb(40,40,40)'}}>
+                            <i className="fa-regular fa-circle-play"></i>
+                        </div>
                     </div>
             </div>
             <Modal 

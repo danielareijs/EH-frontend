@@ -6,7 +6,7 @@ export const creditsReducer = (state, action) => {
     switch (action.type){
         case 'SET_CREDITS':
             return {
-                credits: action.payload
+                credits: action.payload.sort((a, b) => new Date(b.date) - new Date(a.date))
             }
         case 'CREATE_CREDIT':
             return {

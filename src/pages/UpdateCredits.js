@@ -8,9 +8,6 @@ import CreditForm from '../components/CreditForm';
 const UpdateCredits = () => {
     const serverUrl = process.env.REACT_APP_SERVER_URL;
     const {credits, dispatch} = useCreditsContext();
-    const [draggingElement, setDraggingElement] = useState(null);
-    const dragItem = useRef(null);
-    const dragOverItem = useRef(null);
     const { user } = useAuthContext();
     const [activeTab, setActiveTab] = useState('trailer');
 
@@ -46,26 +43,6 @@ const UpdateCredits = () => {
         }
     }
 
-    const handleSort = () => {
-        let _credits = [...credits];
-
-        const dragItemPos = _credits.map(x => x._id).indexOf(dragItem.current);
-        const dragOverItemPos = _credits.map(x => x._id).indexOf(dragOverItem.current);
-
-        const draggedItemContent = _credits.splice(dragItemPos, 1)[0];
-        _credits.splice(dragOverItemPos, 0, draggedItemContent);
-
-        dragItem.current = null;
-        dragOverItem.current = null;
-
-        dispatch({type: 'SET_CREDITS', payload: _credits})
-    }
-
-    const handleDragStart = (e, id) => {
-        dragItem.current = id;
-        setDraggingElement(id);
-    }
-
     return (
         <div className="content-editor">
             <div className="left">
@@ -79,13 +56,7 @@ const UpdateCredits = () => {
                     {credits && credits.filter(credit => credit.category === activeTab).map(credit => (
                         <div 
                             key={credit._id} 
-                            // className={draggingElement == credit._id ? 'content-card draggable dragging' : 'content-card draggable'} 
                             className='content-card draggable'
-                            draggable="true" 
-                            onDragStart={(e) => handleDragStart(e, credit._id)}
-                            onDragEnter={(e) => dragOverItem.current=credit._id}
-                            onDragEnd={handleSort}
-                            onDragOver={(e) => e.preventDefault()}
                         >
                             <img 
                                 src={credit.image} 
@@ -102,39 +73,13 @@ const UpdateCredits = () => {
                             </div>
                         </div>
                     ))}
-                </div>
-                {/* {credits && credits.filter(credit => credit.category === 'trailer').map(credit => (
-                        <div 
-                            key={credit._id} 
-                            // className={draggingElement == credit._id ? 'content-card draggable dragging' : 'content-card draggable'} 
-                            className='content-card draggable'
-                            draggable="true" 
-                            onDragStart={(e) => handleDragStart(e, credit._id)}
-                            onDragEnter={(e) => dragOverItem.current=credit._id}
-                            onDragEnd={handleSort}
-                            onDragOver={(e) => e.preventDefault()}
-                        >
-                            <img 
-                                src={credit.image} 
-                                alt="Credit Poster" 
-                                width="100"
-                            />
-                            <div className="content-card-info">
-                                <h3>{credit.title}</h3>
-                                <a href={credit.videoUrl} target="_blank" rel="noreferrer" alt="Video Url">{credit.videoUrl}</a>
-                                <p>Created: {credit.createdAt}</p>
-                            </div>
-                            <div style={{position: 'relative', top: '10px', right: '10px', color: 'gray', fontWeight: 'bold', cursor: 'pointer', display: 'flex'}}>
-                                <BsFillTrash3Fill onClick={(e) => handleDelete(e, credit._id)}/>
-                            </div>
-                        </div>
-                    ))} */}
+                    </div>
                 </div>
             </div>
-            <div className="right">
-                <CreditForm/>
-            </div>
+        <div className="right">
+            <CreditForm/>
         </div>
+    </div>
     )
 }
 

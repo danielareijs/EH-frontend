@@ -71,9 +71,7 @@ const CreditForm = () => {
             return;
         } 
 
-
-        const credit = {title, category, url, image}
-        console.log('CREDIT: ', credit);
+        const credit = {title, category, date, url, image}
 
         const response = await fetch(`${serverUrl}/credits`, {
             method: 'POST',
@@ -84,7 +82,7 @@ const CreditForm = () => {
             }
         })
 
-        const json = await response.json();
+        const json = await response.clone().json();
 
         if(!response.ok){
             setError(response.json().error)
@@ -100,6 +98,7 @@ const CreditForm = () => {
             
             dispatch({type: 'CREATE_CREDIT', payload: json});
         }
+
     }
 
     return (
@@ -142,7 +141,10 @@ const CreditForm = () => {
             <label>
                 {!image && <p>Poster</p>}
                 {image && <img src={image} alt="Unknown" width="150"/>}
-            <input type="file" onChange={(e) => handleImageUpload(e)}/>
+            <input 
+                type="file" 
+                onChange={(e) => handleImageUpload(e)}
+                />
             </label>
             
            

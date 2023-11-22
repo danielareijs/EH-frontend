@@ -13,7 +13,7 @@ const Music = ({credit, amountOfCredits}) => {
                 <div className="image" style={credit.image ? {backgroundImage: `url("${credit.image}")`} : {background: 'rgb(40,40,40)'}}>
                     <i class="fa-solid fa-circle-play"></i>
                 </div>        
-                <div style={{width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'end'}}>
+                <div style={{width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
                     <div style={{textAlign: 'left'}}>
                         <p>{credit.title}</p>
                     </div>

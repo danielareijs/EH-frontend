@@ -14,7 +14,7 @@ h1, h2, h3, h4, p, ul, body, a {
 
 .container {
   width: 90%;
-  margin: auto;
+  margin: 2% auto 10% auto;
   max-width: 1200px;
 }
 
@@ -194,11 +194,10 @@ ul {
   align-items:center;
 }
 
-
 .music-card > div{
   margin: 0 auto;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   box-sizing: border-box;
   padding: 20px;
 }
@@ -308,7 +307,6 @@ ul {
   cursor: pointer; 
   transition: all .2s ease-in-out;
 }
-
 
 .social-media-list li:hover {
   background-color: #fff; 
@@ -642,8 +640,13 @@ input[type=submit]:hover {
   }
 
   .three-music-cards {
-    width: 30%;
+    width: 28%;
     height: 33vw;
+    padding: 1%;
+  }
+
+  .three-music-cards >div {
+    padding: 10px;
   }
 
   .three-music-cards p {
@@ -682,6 +685,10 @@ input[type=submit]:hover {
   .card {
     margin: 0.5%;
   }
+
+  /* .other-card i {
+    font-size: 8vw;
+  } */
 }
 
 /* MEDIA MAX 471px */
@@ -725,7 +732,8 @@ input[type=submit]:hover {
   }
 
   .other-card {
-    width: 45%;
+    width: 90%;
+    height: 35vw;
   }
 
   .contact >div {

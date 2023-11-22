@@ -1,11 +1,5 @@
-import { useEffect, useState } from "react";
 const Music = ({credit, amountOfCredits}) => {
-    // const [credits, setCredits] = useState(credits);
-
-    useEffect(() => {
-        console.log('Amount of credits: ', amountOfCredits);
-    }, []);
-
+  
     const openInNewTab = (url) => {
         window.open(url, "_blank", "noreferrer");
       };

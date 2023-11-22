@@ -4,6 +4,8 @@ import ReactPlayer from 'react-player/youtube';
 
 const modalStyles = {
     content: {
+        width: '100vw',
+        maxWidth: '1000px',
         top: '50%',
         left: '50%',
         right: 'auto',

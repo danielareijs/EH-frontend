@@ -71,10 +71,7 @@ const Trailer = ({credit}) => {
                 <ReactPlayer 
                 playing={true}
                 url={url}
-                sources={[
-                    { src: {url}, type: 'video/mp4' },
-                    { src: {url}, type: 'video/webm' },
-                  ]} />
+                />
             </Modal>
         </>
      );

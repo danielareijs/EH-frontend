@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import Modal from 'react-modal';
-import ReactPlayer from 'react-player/youtube';
+import ReactPlayer from 'react-player';
 
 const modalStyles = {
     content: {
@@ -78,7 +78,6 @@ const Trailer = ({credit}) => {
                   ]} />
                 }
                 {!url && <div>No media available</div>}
-
             </Modal>
         </>
      );

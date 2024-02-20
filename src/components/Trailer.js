@@ -68,6 +68,7 @@ const Trailer = ({credit}) => {
             onAfterOpen={afterOpenModal}
             style={modalStyles}
             >
+                {url &&
                 <ReactPlayer 
                 playing={true}
                 url={url}
@@ -75,6 +76,9 @@ const Trailer = ({credit}) => {
                     { src: {url}, type: 'video/mp4' },
                     { src: {url}, type: 'video/webm' },
                   ]} />
+                }
+                {!url && <div>No media available</div>}
+
             </Modal>
         </>
      );

@@ -15,10 +15,10 @@ const CreditForm = () => {
     const { user } = useAuthContext();
 
     useEffect(() => {
-        if(title && image && date && url && category){
+        if(title && image && date && category){
             setButtonDisabled(false);
         }
-    }, [title, image, date, category, url])
+    }, [title, image, date, category])
 
     const handleImageUpload = (event) => {
 
@@ -147,12 +147,22 @@ const CreditForm = () => {
                 />
             </label>
             
-           
+           {!buttonDisabled && 
             <input 
                 type="submit" 
                 value="Add Credit" 
                 onClick={handleSubmit} 
-                disabled={buttonDisabled}/>
+            />
+            }
+            {buttonDisabled && 
+            <input 
+                type="submit" 
+                value="Add Credit" 
+                onClick={handleSubmit} 
+                disabled
+            />
+            }
+            
         </div>
     )
 }

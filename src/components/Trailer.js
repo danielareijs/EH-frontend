@@ -77,7 +77,7 @@ const Trailer = ({credit}) => {
                     { src: {url}, type: 'video/webm' },
                   ]} />
                 }
-                {!url && <div>No media available</div>}
+                {!url && <img src={credit.image} style={{width: '50%'}}/>}
             </Modal>
         </>
      );

@@ -25,14 +25,14 @@ const CreditForm = () => {
         var reader = new FileReader();
         reader.readAsDataURL(event.target.files[0]);
         reader.onload = () => {
-            resizeImage(reader.result, 350, 400).then((result) => {
+            resizeImage(reader.result, 1400, 1600).then((result) => {
                 setImage(result);
             });
         }
 
     }
 
-    function resizeImage(base64Str, maxWidth = 500, maxHeight = 600) {
+    function resizeImage(base64Str, maxWidth = 1400, maxHeight = 1600) {
         return new Promise((resolve) => {
           let img = new Image()
           img.src = base64Str
